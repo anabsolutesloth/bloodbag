@@ -25,6 +25,18 @@ repositories {
             includeGroup 'maven.modrinth'
         }
     }
+    maven {
+        name = "Thiakil Maven"
+        url = "https://maven.thiakil.com/"
+    }
+    maven {
+        name = "TeamLapen Maven"
+        url = "https://maxanier.de/maven2"
+    }
+    maven {
+        name = "BlameJared Maven"
+        url = "https://maven.blamejared.com/"
+    }
     mavenLocal() // Must be last for caching to work
 }
 
@@ -65,4 +77,10 @@ dependencies {
     // implementation ('com.google.code.gson:gson:2.8.6') {
     //     transitive = false
     // }
+    runtimeOnly "mezz.jei:jei_1.12.2:4.16.1.1013"
+
+    implementation "com.azanor.baubles:Baubles:1.12-1.5.2"
+
+    compileOnly "de.teamlapen.vampirism:Vampirism:1.12.2-1.6.2:api"
+    implementation "de.teamlapen.vampirism:Vampirism:1.12.2-1.6.2"
 }
