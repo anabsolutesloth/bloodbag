@@ -1,6 +1,8 @@
 ## Blood Bag
 Vampirism addon adding an Autofeeder for Vampires.
 
+[Curseforge](https://www.curseforge.com/minecraft/mc-mods/blood-bag-for-vampirism)
+
 ### New Item - Blood Bag
 - If you're a Vampire, automatically feeds you using Blood contained inside it.
 - Can be filled by most things, Tanks, Machines, you name it!
