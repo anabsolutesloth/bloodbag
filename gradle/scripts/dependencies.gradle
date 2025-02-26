@@ -25,13 +25,21 @@ repositories {
             includeGroup 'maven.modrinth'
         }
     }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "TeamLapen Maven"
+                url = "https://maxanier.de/maven2"
+            }
+        }
+        filter {
+            includeGroup "de.teamlapen.vampirism"
+            includeGroup "de.teamlapen.vampirism_integrations"
+        }
+    }
     maven {
         name = "Thiakil Maven"
         url = "https://maven.thiakil.com/"
-    }
-    maven {
-        name = "TeamLapen Maven"
-        url = "https://maxanier.de/maven2"
     }
     maven {
         name = "BlameJared Maven"
@@ -78,9 +86,18 @@ dependencies {
     //     transitive = false
     // }
     runtimeOnly "mezz.jei:jei_1.12.2:4.16.1.1013"
+    runtimeOnly "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.703"
 
     implementation "com.azanor.baubles:Baubles:1.12-1.5.2"
 
     compileOnly "de.teamlapen.vampirism:Vampirism:1.12.2-1.6.2:api"
     implementation "de.teamlapen.vampirism:Vampirism:1.12.2-1.6.2"
+    //runtimeOnly "de.teamlapen.vampirism_integrations:VampirismIntegrations:1.12.2-1.1.0"
+
+    runtimeOnly "curse.maven:thermal-foundation-222880:2926428"
+    runtimeOnly "curse.maven:thermal-expansion-69163:2926431"
+    runtimeOnly "curse.maven:cofh-core-69162:2920433"
+    runtimeOnly "curse.maven:cofh-world-271384:2920434"
+    runtimeOnly "curse.maven:redstone-flux-270789:2920436"
+    runtimeOnly "curse.maven:codechicken-lib-1-8-242818:2779848"
 }
