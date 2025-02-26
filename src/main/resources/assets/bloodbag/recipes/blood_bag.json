@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "item": "bloodbag:blood_bag"
+  },
+  "pattern": [
+    "NIN",
+    "L L",
+    "LLL"
+  ],
+  "key": {
+    "I": {
+      "item": "vampirism:blood_infused_iron_ingot"
+    },
+    "N": {
+      "type": "forge:ore_dict",
+      "ore": "nuggetIron"
+    },
+    "L": {
+      "type": "forge:ore_dict",
+      "ore": "leather"
+    }
+  }
+}
