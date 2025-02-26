@@ -2,7 +2,6 @@ package com.emperdog.bloodbag.item;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
-import com.emperdog.bloodbag.BloodBagMod;
 import com.emperdog.bloodbag.config.BloodBagConfig;
 import de.teamlapen.vampirism.api.VReference;
 import de.teamlapen.vampirism.api.VampirismAPI;
@@ -21,7 +20,6 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -64,9 +62,8 @@ public class BloodBagItem extends Item implements IBauble {
 
     @Override
     public void onWornTick(ItemStack stack, EntityLivingBase entity) {
-        if(
-                //entity.world.isRemote
-                entity.world.getWorldTime() % 100 != 0
+        if(entity.world.isRemote
+                || entity.world.getWorldTime() % 100 != 0
                 || !(entity instanceof EntityPlayer))
             return;
 
@@ -84,16 +81,15 @@ public class BloodBagItem extends Item implements IBauble {
             int toDrink = bloodStats.getMaxBlood() - bloodStats.getBloodLevel();
             vampirePlayer.drinkBlood(toDrink, IBloodStats.LOW_SATURATION);
             cap.drain(toDrink * VReference.FOOD_TO_FLUID_BLOOD, true);
-            player.world.playSound(player, player.getPosition(), SoundEvents.ENTITY_GENERIC_DRINK, SoundCategory.PLAYERS, 0.2f, 1.3f);
+            player.playSound(SoundEvents.ENTITY_GENERIC_DRINK, 0.2f, 1.3f);
         }
     }
 
     @Nullable
     public IVampirePlayer getVampirePlayer(EntityPlayer player) {
-        if(VampirismAPI.factionRegistry().getFaction(player) != VReference.VAMPIRE_FACTION) {
-            BloodBagMod.LOGGER.info("{} is not a vampire.", player.getName());
+        if(VampirismAPI.factionRegistry().getFaction(player) != VReference.VAMPIRE_FACTION)
+            //BloodBagMod.LOGGER.info("{} is not a vampire.", player.getName());
             return null;
-        }
 
         IFactionPlayer<?> factionPlayer = VampirismAPI.getFactionPlayerHandler(player).getCurrentFactionPlayer();
         return factionPlayer instanceof IVampirePlayer ? (IVampirePlayer) factionPlayer : null;
