@@ -1,7 +1,7 @@
-### Blood Bag
+## Blood Bag
 Vampirism addon adding an Autofeeder for Vampires.
 
-New Item - Blood Bag
+### New Item - Blood Bag
 - If you're a Vampire, automatically feeds you using Blood contained inside it.
 - Can be filled by most things, Tanks, Machines, you name it!
 - Baubles Integration, equip it as a Bauble, and it'll Autofeed you!
@@ -10,6 +10,6 @@ New Item - Blood Bag
     - The Blood Bag has several configuration options available:
         - Max Capacity
         - Max Blood consumed per Drink
-        - Autofeeding from Inventory
-        - Autofeeding from Baubles
+        - Autofeeding.
+        - If Autofeeding from main Inventory is enabled when Baubles is installed.
         - What Bauble Slot it's equipped in.
